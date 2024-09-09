@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    public string resourceType;
+    public string resourceType; //가축이 생산하는 자원의 종류
 
     public Resource(string type)
     {
