@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
 
@@ -34,9 +35,6 @@ public class ProducingState : IAnimalState
 
 public class Animal : MonoBehaviour
 {
-    public string animalName;
-    public string resourceType;
-    public float produceTime; //자원 생산 주기
     protected float productionInterval = 5.0f;
     private float timer = 0.0f;
     private IAnimalState currentState;
@@ -62,14 +60,7 @@ public class Animal : MonoBehaviour
     {
         if (CanProduce())
         {
-            GameObject newResource = Instantiate(resourcePrefab, spawnLocation.position, Quaternion.identity);
-
-            Resource resourceComponent = newResource.GetComponent<Resource>();
-            if(resourceComponent != null)
-            {
-                resourceComponent.resourceType = resourceType;
-            }
-
+            Instantiate(resourcePrefab, spawnLocation.position, Quaternion.identity);
             timer = 0.0f; //생산후 타이머 초기화
         }
     }

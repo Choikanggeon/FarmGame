@@ -8,7 +8,7 @@ public class Chicken : Animal
 
     private void Start()
     {
-        productionInterval = 20.0f;
+        productionInterval = 5.0f;
         if (eggPrefab != null)
         {
             resourcePrefab = eggPrefab;

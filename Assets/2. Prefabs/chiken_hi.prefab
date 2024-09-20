@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: 6c32c46fc2ffa494dbfd81f1fddb3da2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 168.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: 6c32c46fc2ffa494dbfd81f1fddb3da2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: 6c32c46fc2ffa494dbfd81f1fddb3da2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 132.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: 6c32c46fc2ffa494dbfd81f1fddb3da2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -131,8 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b867949563c8a4439704654443485bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalName: 
-  resourceType: 
-  produceTime: 0
   resourcePrefab: {fileID: 0}
-  eggPrefab: {fileID: 1964736228438414241, guid: 854717e6639fced48a5b70de99dfaf9c, type: 3}
+  eggPrefab: {fileID: 453421347767909746, guid: b2787c32872880b4daa7790d281cd28b, type: 3}

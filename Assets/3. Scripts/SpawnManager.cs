@@ -41,13 +41,5 @@ public class SpawnManager : MonoBehaviour
     {
         RandomSpawn();
         GameObject newChicken = Instantiate(chickenPrefab, chosenSpawnPoint.position, Quaternion.identity);
-
-        Chicken chickenComponent = newChicken.GetComponent<Chicken>();
-        if (chickenComponent != null)
-        {
-            chickenComponent.animalName = "Chicken";
-            chickenComponent.resourceType = "Egg";
-            chickenComponent.produceTime = 5.0f;
-        }
     }
 }
