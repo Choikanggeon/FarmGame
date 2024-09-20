@@ -3,27 +3,76 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
 
-public class Animal
+public interface IAnimalState
+{
+    void Execute(Animal animal);
+}
+
+public class IdleState : IAnimalState
+{
+    public void Execute(Animal animal)
+    {
+        if (animal.CanProduce())
+        {
+            animal.SetState(new ProducingState());
+        }
+    }
+}
+
+public class ProducingState : IAnimalState
+{
+    public void Execute(Animal animal)
+    {
+        // 자원 생성 위치
+        Transform spawnLocation = animal.transform;
+        animal.ProduceResource(spawnLocation); // 프리팹 생성
+
+        // 상태를 다시 Idle로 변경
+        animal.SetState(new IdleState());
+    }
+}
+
+public class Animal : MonoBehaviour
 {
     public string animalName;
     public string resourceType;
-    public float produceTime; //�ڿ� ���� �ֱ�
+    public float produceTime; //자원 생산 주기
+    protected float productionInterval = 5.0f;
     private float timer = 0.0f;
+    private IAnimalState currentState;
 
-    public Animal(string name , string resource , float time)
+    public GameObject resourcePrefab;
+
+    public void SetState(IAnimalState newState)
     {
-        animalName = name;
-        resourceType = resource;
-        produceTime = time;
+        currentState = newState;
     }
 
-    public void ProduceResource(List<Resource> resources)
+    private void Update()
     {
         timer += Time.deltaTime;
+        currentState?.Execute(this); // 현재 상태에서 실행
+    }
 
-        if (timer >= produceTime)
+    public bool CanProduce()
+    {
+        return timer >= productionInterval;
+    }
+    public void ProduceResource(Transform spawnLocation)
+    {
+        if (CanProduce())
         {
-            resources.Add(new Resource(resourceType));
+            GameObject newResource = Instantiate(resourcePrefab, spawnLocation.position, Quaternion.identity);
+
+            Resource resourceComponent = newResource.GetComponent<Resource>();
+            if(resourceComponent != null)
+            {
+                resourceComponent.resourceType = resourceType;
+            }
+
+            timer = 0.0f; //생산후 타이머 초기화
         }
     }
+
+
 }

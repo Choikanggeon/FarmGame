@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<Resource> inventory = new List<Resource>();
 
-    // Update is called once per frame
-    void Update()
+    public void AddResource(Resource resource)
     {
-        
+        inventory.Add(resource);
     }
 }
