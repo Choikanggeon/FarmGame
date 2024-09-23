@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
+using UnityEngine.Pool;
 
 public interface IAnimalState
 {
@@ -39,7 +40,7 @@ public class Animal : MonoBehaviour
     private float timer = 0.0f;
     private IAnimalState currentState;
 
-    public GameObject resourcePrefab;
+    public ObjectPool resourcePool; //오브젝트 풀 참조
 
     public void SetState(IAnimalState newState)
     {
@@ -60,7 +61,9 @@ public class Animal : MonoBehaviour
     {
         if (CanProduce())
         {
-            Instantiate(resourcePrefab, spawnLocation.position, Quaternion.identity);
+            GameObject resource = resourcePool.GetObject();
+            resource.transform.position = spawnLocation.position + Vector3.up*0.5f;
+            resource.transform.rotation = Quaternion.identity;
             timer = 0.0f; //생산후 타이머 초기화
         }
     }
