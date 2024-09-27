@@ -13,12 +13,11 @@ public class Factory
 
     public void ProcessResources(List<Resource> resources)
     {
-        // ÀÚ¿øÀ» °¡°øÇÏ¿© »õ·Î¿î Á¦Ç° »ý»ê
+        // ìžì›ì„ ê°€ê³µí•˜ì—¬ ìƒˆë¡œìš´ ì œí’ˆ ìƒì‚°
         if (resources.Count > 0)
         {
             Resource resource = resources[0];
             resources.RemoveAt(0);
-            Debug.Log("Processed " + resource.resourceType + " into " + productType);
         }
     }
 }

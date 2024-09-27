@@ -5,7 +5,9 @@ namespace EnumTypes
 {
     public enum UIEvents
     {
-        OnClickBuyChickenButton
+        OnClickBuyChickenButton,
+        OnClickRestoreResource,
+        OnEAChanged
     }
 
     public enum SpawnEvents
