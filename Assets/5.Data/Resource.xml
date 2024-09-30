@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Resource>
+    <dataCategory>
+        <data Name="Egg" EA = "1.5" Price ="50" Image ="egg" />
+        <data Name="Meat" EA = "3" Price ="200" Image ="meat" />
+        <data Name="Wool" EA = "5" Price ="400" Image ="wool" />
+        <data Name="Milk" EA = "10" Price ="1000" Image ="milk" />
+    </dataCategory>
+</Resource>

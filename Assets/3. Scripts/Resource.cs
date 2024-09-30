@@ -12,6 +12,7 @@ public class Resource : MonoBehaviour
     private int _price;
     private int _lastIntegerEA; //이전의 정수형 EA값을 추적
 
+
     public string Name
     {
         get {  return _name; }

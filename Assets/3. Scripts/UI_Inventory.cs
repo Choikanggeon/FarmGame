@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Resource와 Sprite의 매핑을 위한 클래스
 public class UI_Inventory : MonoBehaviour
 {
     public GameObject UIResourcePrefab;
@@ -42,14 +43,14 @@ public class UI_Inventory : MonoBehaviour
     private void AddImage(Resource resource)
     {
         GameObject newImage = Instantiate(UIResourcePrefab, transform);
-        newImage.GetComponent<Image>().sprite = GetResourceSprite(resource);
+        //newImage.GetComponent<Image>().sprite = GetResourceSprite(resource);
         inventory.Add(newImage);
     }
 
-    private Sprite GetResourceSprite(Resource resource)
-    {
-        return ResourceSpriteDic[resource];
-    }
+    //private Sprite GetResourceSprite(Resource resource)
+    
+        
+    
 
 
 }
