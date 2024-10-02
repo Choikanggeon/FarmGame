@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    private string _name;
-    private int _ea;
-    private int _imageIndex;
-    private int _price;
-    private int _lastIntegerEA; //이전의 정수형 EA값을 추적
+    protected string _name;
+    protected float _uiEA;
+    protected float _ea;
+    protected int _price;
+    protected int _lastIntegerEA; //이전의 정수형 EA값을 추적
 
 
     public string Name
@@ -19,27 +19,26 @@ public class Resource : MonoBehaviour
         set { _name = value; }
     }
 
-    public int EA
+    public float EA
     {
         get { return _ea; }
+        set { _ea = value; }
+    }
+    public float UI_EA
+    {
+        get { return _uiEA; }
         set 
         {
-            int newIntegerEA = Mathf.FloorToInt(value); // 새로운 정수값 계산
-
-            if (newIntegerEA != _lastIntegerEA) //정수값이 변경되었을때만 이벤트 발생
-            {
-                _ea = value;
-                _lastIntegerEA = newIntegerEA;
-                EventManager<UIEvents>.TriggerEvent(UIEvents.OnEAChanged, this);
-            }
+            _uiEA = value;
         }
     }
-    
-    public int ImageIndex
+
+    public int LastEA
     {
-        get { return _imageIndex; }
-        set { _imageIndex = value; }
+        get { return _lastIntegerEA; }
+        set { _lastIntegerEA = value; }
     }
+
 
     public int Price
     {

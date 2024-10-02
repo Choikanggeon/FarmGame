@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public void AddResource(Resource resource)
     {
-        resource.EA++;
+        resource.UI_EA += resource.EA;
+        EventManager<UIEvents>.TriggerEvent(UIEvents.OnEAChanged, resource);
     } 
 }

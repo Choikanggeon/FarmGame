@@ -7,8 +7,7 @@ public class Egg : Resource
     private void OnEnable()
     {
         Name = "달걀";
-        EA = 2;
-        ImageIndex = 1;
+        EA = 1.5f;
         Price = 10;
     }
 }
