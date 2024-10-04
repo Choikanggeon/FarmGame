@@ -10,4 +10,19 @@ public class UI_AnimalBuy : MonoBehaviour
     {
         EventManager<UIEvents>.TriggerEvent(UIEvents.OnClickBuyChickenButton);
     }
+
+    public void OnClickBuyPigButton()
+    {
+        EventManager<UIEvents>.TriggerEvent(UIEvents.OnClickBuyPigButton);
+    }
+
+    public void OnClickBuySheepButton()
+    {
+        EventManager<UIEvents>.TriggerEvent(UIEvents.OnClickBuySheepButton);
+    }
+
+    public void OnClickBuyCowButton()
+    {
+        EventManager<UIEvents>.TriggerEvent(UIEvents.OnClickBuyCowButton);
+    }
 }

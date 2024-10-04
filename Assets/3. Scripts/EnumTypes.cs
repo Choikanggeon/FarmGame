@@ -6,13 +6,19 @@ namespace EnumTypes
     public enum UIEvents
     {
         OnClickBuyChickenButton,
+        OnClickBuyPigButton,
+        OnClickBuySheepButton,
+        OnClickBuyCowButton,
         OnClickRestoreResource,
         OnEAChanged
     }
 
     public enum SpawnEvents
     {
-        BuyChickenButton_SpawnChicken
+        SpawnChicken,
+        SpawnPig,
+        SpawnSheep,
+        SpawnCow,
     }
     public class EnumTypes : MonoBehaviour
     {
