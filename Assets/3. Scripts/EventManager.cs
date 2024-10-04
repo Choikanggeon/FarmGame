@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace EventLibrary
@@ -20,7 +21,7 @@ namespace EventLibrary
         private static readonly Dictionary<E, UnityEventBase> EventDictionary = new Dictionary<E, UnityEventBase>();
 
         // 스레드 안전성을 위한 객체
-        private static readonly object LockObj = new object();
+        //private static readonly object LockObj = new object();
 
         // 매개변수가 없는 UnityAction 리스너를 추가하는 메서드
         public static void StartListening(E eventName, UnityAction listener)
@@ -118,7 +119,7 @@ namespace EventLibrary
         // 리스너를 추가하는 메서드
         private static void AddListener<T>(E eventName, UnityAction<T> listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 GenericEvent<T> genericEvent = GetOrCreateEvent<GenericEvent<T>>(eventName);
                 genericEvent.AddListener(listener);
@@ -127,7 +128,7 @@ namespace EventLibrary
 
         private static void AddListener<T, U>(E eventName, UnityAction<T, U> listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 GenericEvent<T, U> genericEvent = GetOrCreateEvent<GenericEvent<T, U>>(eventName);
                 genericEvent.AddListener(listener);
@@ -136,7 +137,7 @@ namespace EventLibrary
 
         private static void AddListener<T, U, V>(E eventName, UnityAction<T, U, V> listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 GenericEvent<T, U, V> genericEvent = GetOrCreateEvent<GenericEvent<T, U, V>>(eventName);
                 genericEvent.AddListener(listener);
@@ -145,7 +146,7 @@ namespace EventLibrary
 
         private static void AddListener(E eventName, UnityAction listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 UnityEvent unityEvent = GetOrCreateEvent<UnityEvent>(eventName);
                 unityEvent.AddListener(listener);
@@ -155,7 +156,7 @@ namespace EventLibrary
         // 리스너를 제거하는 메서드
         private static void RemoveListener<T>(E eventName, UnityAction<T> listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 if (EventDictionary.TryGetValue(eventName, out var thisEvent) &&
                     thisEvent is GenericEvent<T> genericEvent)
@@ -168,7 +169,7 @@ namespace EventLibrary
 
         private static void RemoveListener<T, U>(E eventName, UnityAction<T, U> listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 if (EventDictionary.TryGetValue(eventName, out var thisEvent) &&
                     thisEvent is GenericEvent<T, U> genericEvent)
@@ -181,7 +182,7 @@ namespace EventLibrary
 
         private static void RemoveListener<T, U, V>(E eventName, UnityAction<T, U, V> listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 if (EventDictionary.TryGetValue(eventName, out var thisEvent) &&
                     thisEvent is GenericEvent<T, U, V> genericEvent)
@@ -194,7 +195,7 @@ namespace EventLibrary
 
         private static void RemoveListener(E eventName, UnityAction listener)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 if (EventDictionary.TryGetValue(eventName, out var thisEvent) && thisEvent is UnityEvent unityEvent)
                 {
@@ -207,7 +208,7 @@ namespace EventLibrary
         // 이벤트를 트리거하는 메서드
         private static void InvokeEvent<T>(E eventName, T parameter)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 try
                 {
@@ -219,14 +220,14 @@ namespace EventLibrary
                 }
                 catch (Exception e)
                 {
-                    DebugLogger.LogError($"이벤트 {eventName}를 트리거하는 중 오류 발생 - 매개변수: {parameter}, 메시지: {e.Message}");
+                    UnityEngine.Debug.LogError($"이벤트 {eventName}를 트리거하는 중 오류 발생 - 매개변수: {parameter}, 메시지: {e.Message}");
                 }
             }
         }
 
         private static void InvokeEvent<T, U>(E eventName, T parameter1, U parameter2)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 try
                 {
@@ -238,7 +239,7 @@ namespace EventLibrary
                 }
                 catch (Exception e)
                 {
-                    DebugLogger.LogError(
+                    UnityEngine.Debug.LogError(
                         $"이벤트 {eventName}를 트리거하는 중 오류 발생 - 매개변수들: {parameter1}, {parameter2}, 메시지: {e.Message}");
                 }
             }
@@ -246,7 +247,7 @@ namespace EventLibrary
 
         private static void InvokeEvent<T, U, V>(E eventName, T parameter1, U parameter2, V parameter3)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 try
                 {
@@ -258,7 +259,7 @@ namespace EventLibrary
                 }
                 catch (Exception e)
                 {
-                    DebugLogger.LogError(
+                    UnityEngine.Debug.LogError(
                         $"이벤트 {eventName}를 트리거하는 중 오류 발생 - 매개변수들: {parameter1}, {parameter2}, {parameter3}, 메시지: {e.Message}");
                 }
             }
@@ -266,7 +267,7 @@ namespace EventLibrary
 
         private static void InvokeEvent(E eventName)
         {
-            lock (LockObj)
+            //lock (LockObj)
             {
                 try
                 {
@@ -277,7 +278,8 @@ namespace EventLibrary
                 }
                 catch (Exception e)
                 {
-                    DebugLogger.LogError($"이벤트 {eventName}를 트리거하는 중 오류 발생 - 메시지: {e.Message}");
+                    //DebugLogger.LogError($"이벤트 {eventName}를 트리거하는 중 오류 발생 - 메시지: {e.Message}");
+                    Debug.Log(($"이벤트 {eventName}를 트리거하는 중 오류 발생 - 메시지: {e.Message}"));
                 }
             }
         }

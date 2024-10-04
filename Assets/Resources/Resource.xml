@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Resource>
     <dataCategory>
-        <data Name="달걀" EA = "1.5" Price ="50" />
+        <data Name="Egg" EA = "1.5" Price ="50" />
         <data Name="Meat" EA = "3" Price ="200" />
         <data Name="Wool" EA = "5" Price ="400" />
         <data Name="Milk" EA = "10" Price ="1000" />

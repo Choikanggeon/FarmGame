@@ -4,7 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public abstract class Resource : MonoBehaviour
+{
+    public ResourceData Data { get; protected set; } = new ResourceData();
+
+    // 자원 클릭 시 호출될 메서드
+    public abstract void OnMouseDown();
+}
+
+
+public class ResourceData
 {
     protected string _name;
     protected float _uiEA;
@@ -15,7 +24,7 @@ public class Resource : MonoBehaviour
 
     public string Name
     {
-        get {  return _name; }
+        get { return _name; }
         set { _name = value; }
     }
 
@@ -23,14 +32,6 @@ public class Resource : MonoBehaviour
     {
         get { return _ea; }
         set { _ea = value; }
-    }
-    public float UI_EA
-    {
-        get { return _uiEA; }
-        set 
-        {
-            _uiEA = value;
-        }
     }
 
     public int LastEA
@@ -46,11 +47,4 @@ public class Resource : MonoBehaviour
         set { _price = value; }
     }
 
-    // 자원 클릭 시 호출될 메서드
-    private void OnMouseDown()
-    {
-        // 클릭하면 자원이 인벤토리에 추가됨
-        EventManager<UIEvents>.TriggerEvent(UIEvents.OnClickRestoreResource, this);
-        this.gameObject.SetActive(false);
-    }
 }

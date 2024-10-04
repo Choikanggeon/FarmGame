@@ -33,14 +33,19 @@ public class UI_Inventory : MonoBehaviour
 
     private void AddImages(Resource resource)
     {
-        
-        for (int i = 1; i <= resource.UI_EA - resource.LastEA; i++)
+        float afterCount = ResourceManager.Instance.GetResourceAfterCounts(resource);
+        float beforeCount = ResourceManager.Instance.GetResourceBeforeCounts(resource);
+
+        // 자원 수량의 차이를 구하고 소수점 차이는 올림하여 처리
+        int difference = Mathf.FloorToInt(afterCount - Mathf.FloorToInt(beforeCount));
+
+        for (int i = 0; i < difference; i++)
         {
             AddImage(resource);
         }
-        Debug.Log("Before Update -> UI_EA: " + resource.UI_EA + ", LastEA: " + resource.LastEA);
-        resource.LastEA = Mathf.FloorToInt(resource.UI_EA);
-        Debug.Log("After Update -> UI_EA: " + resource.UI_EA + ", LastEA: " + resource.LastEA);
+
+        ResourceManager.Instance.resourceBeforeCounts[resource.Data.Name] = afterCount;
+        Debug.Log($"Updated resourceBeforeCounts for {ResourceManager.Instance.resourceBeforeCounts[resource.Data.Name]} to {afterCount}");
     }
 
     private void AddImage(Resource resource)
@@ -64,7 +69,7 @@ public class UI_Inventory : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No sprite found for resource: " + resource.Name);
+            Debug.LogWarning("No sprite found for resource: " + resource.Data.Name);
             return null;
         }
     }

@@ -31,22 +31,22 @@ public class DataManager : SingletonMono<DataManager>
         foreach (var data in dataElements)
         {
             // XML에서 Name 속성을 읽어옴
-            resource.Name = data.Attribute("Name").Value;
+            resource.Data.Name = data.Attribute("Name").Value;
 
-            Debug.Log("Resource Name: " + resource.Name);  // XML에서 Name이 제대로 불러와지는지 확인
+            Debug.Log("Resource Name: " + resource.Data.Name);  // XML에서 Name이 제대로 불러와지는지 확인
 
             // 스프라이트 로드
-            Sprite resourceSprite = LoadSpriteFromResources(resource.Name);
+            Sprite resourceSprite = LoadSpriteFromResources(resource.Data.Name);
 
             if (resourceSprite != null)
             {
-                Debug.Log("Sprite loaded successfully for resource: " + resource.Name);
+                Debug.Log("Sprite loaded successfully for resource: " + resource.Data.Name);
                 ResourceSpriteDic.TryAdd(resource, resourceSprite);
                 break;
             }
             else
             {
-                Debug.LogWarning("Failed to load sprite for resource: " + resource.Name);
+                Debug.LogWarning("Failed to load sprite for resource: " + resource.Data.Name);
             }
         }
     }
