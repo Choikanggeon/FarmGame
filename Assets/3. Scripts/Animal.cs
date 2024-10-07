@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
-using UnityEngine.Pool;
 
 public interface IAnimalState
 {
@@ -36,7 +31,7 @@ public class ProducingState : IAnimalState
 
 public class Animal : MonoBehaviour
 {
-    protected float productionInterval = 5.0f;
+    protected float productionInterval;
     private float timer = 0.0f;
     private IAnimalState currentState;
 
@@ -57,6 +52,7 @@ public class Animal : MonoBehaviour
     {
         return timer >= productionInterval;
     }
+
     public void ProduceResource(Transform spawnLocation)
     {
         if (CanProduce())

@@ -17,23 +17,31 @@ public class DataManager : SingletonMono<DataManager>
     //XML에서 자원과 스프라이트 정보를 불러오는 메서드
     public void LoadResourceFromXM(Resource resource)
     {
-        if(ResourceSpriteDic.ContainsKey(resource))
+        if (ResourceSpriteDic.ContainsKey(resource))
         {
             return;
         }
 
-        //XML 파일 로드
+        // XML 파일 로드
         XDocument doc = XDocument.Load(xmlFilePath);
 
-        //XML에서 <data> 태그를 가진 모든 요소를 가져옴
+        // XML에서 <data> 태그를 가진 모든 요소를 가져옴
         var dataElements = doc.Descendants("data");
 
         foreach (var data in dataElements)
         {
-            // XML에서 Name 속성을 읽어옴
-            resource.Data.Name = data.Attribute("Name").Value;
+            // XML에서 Name 속성을 읽고, resource.Data.Name과 비교
+            if (resource.Data.Name != data.Attribute("Name").Value)
+            {
+                continue;
+            }
 
-            Debug.Log("Resource Name: " + resource.Data.Name);  // XML에서 Name이 제대로 불러와지는지 확인
+            // XML 데이터에서 속성 값들을 가져와서 resource.Data에 저장
+            resource.Data.Name = data.Attribute("Name").Value;
+            resource.Data.EA = float.Parse(data.Attribute("EA").Value);
+            resource.Data.Price = int.Parse(data.Attribute("Price").Value);
+
+            Debug.Log("Resource Name: " + resource.Data.Name);
 
             // 스프라이트 로드
             Sprite resourceSprite = LoadSpriteFromResources(resource.Data.Name);
@@ -48,6 +56,7 @@ public class DataManager : SingletonMono<DataManager>
             {
                 Debug.LogWarning("Failed to load sprite for resource: " + resource.Data.Name);
             }
+            break; // 해당 리소스를 찾았으므로 반복문 종료
         }
     }
 
