@@ -7,4 +7,5 @@ using UnityEngine.Animations;
 
 public class Player : MonoBehaviour
 {
+
 }
