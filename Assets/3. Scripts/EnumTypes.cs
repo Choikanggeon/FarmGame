@@ -13,13 +13,7 @@ namespace EnumTypes
         OnEAChanged
     }
 
-    public enum SpawnEvents
-    {
-        SpawnChicken,
-        SpawnPig,
-        SpawnSheep,
-        SpawnCow,
-    }
+    
     public class EnumTypes : MonoBehaviour
     {
 

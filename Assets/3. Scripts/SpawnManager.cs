@@ -23,14 +23,10 @@ public class SpawnManager : MonoBehaviour
 
     private void AddEvent()
     {
-        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuyChickenButton, SpawnChickenMethodTrigger);
-        EventManager<SpawnEvents>.StartListening(SpawnEvents.SpawnChicken, SpawnChicken);
-        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuyPigButton, SpawnPigMethodTrigger);
-        EventManager<SpawnEvents>.StartListening(SpawnEvents.SpawnPig, SpawnPig);
-        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuySheepButton, SpawnSheepMethodTrigger);
-        EventManager<SpawnEvents>.StartListening(SpawnEvents.SpawnSheep, SpawnSheep);
-        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuyCowButton, SpawnCowMethodTrigger);
-        EventManager<SpawnEvents>.StartListening(SpawnEvents.SpawnCow, SpawnCow);
+        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuyChickenButton, SpawnChicken);
+        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuyPigButton, SpawnPig);
+        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuySheepButton, SpawnSheep);
+        EventManager<UIEvents>.StartListening(UIEvents.OnClickBuyCowButton, SpawnCow);
     }
 
     private void RandomSpawn()
@@ -39,46 +35,25 @@ public class SpawnManager : MonoBehaviour
         randomIndex = Random.Range(0, spawnPoints.Length);
         chosenSpawnPoint = spawnPoints[randomIndex];   
     }
-    public void SpawnChickenMethodTrigger()
-    {
-        EventManager<SpawnEvents>.TriggerEvent(SpawnEvents.SpawnChicken);
-    }
 
-    public void SpawnPigMethodTrigger()
-    {
-        EventManager<SpawnEvents>.TriggerEvent(SpawnEvents.SpawnPig);
-    }
-
-    public void SpawnSheepMethodTrigger()
-    {
-        EventManager<SpawnEvents>.TriggerEvent(SpawnEvents.SpawnSheep);
-    }
-
-    public void SpawnCowMethodTrigger()
-    {
-        EventManager<SpawnEvents>.TriggerEvent(SpawnEvents.SpawnCow);
-    }
-
-
-
-    public void SpawnChicken()
+    private void SpawnChicken()
     {
         RandomSpawn();
         GameObject newChicken = Instantiate(chickenPrefab, chosenSpawnPoint.position, Quaternion.identity);
     }
 
-    public void SpawnPig()
+    private void SpawnPig()
     {
         RandomSpawn();
         GameObject newPig = Instantiate(pigPrefab, chosenSpawnPoint.position, Quaternion.identity);
     }
 
-    public void SpawnSheep()
+    private void SpawnSheep()
     {
         RandomSpawn();
         GameObject newSheep = Instantiate(sheepPrefab, chosenSpawnPoint.position, Quaternion.identity);
     }
-    public void SpawnCow()
+    private void SpawnCow()
     {
         RandomSpawn();
         GameObject newCow = Instantiate(cowPrefab, chosenSpawnPoint.position, Quaternion.identity);
