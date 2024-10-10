@@ -15,7 +15,6 @@ public class ResourceManager : SingletonMono<ResourceManager>
     private void Awake()
     {
         EventManager<UIEvents>.StartListening<Resource>(UIEvents.OnClickRestoreResource, AddResource);
-
     }
 
     private void OnDestroy()

@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
     {
         //랜덤하게 스폰 위치 선택
         randomIndex = Random.Range(0, spawnPoints.Length);
-        chosenSpawnPoint = spawnPoints[randomIndex];   
+        chosenSpawnPoint = spawnPoints[randomIndex];
     }
 
     private void SpawnChicken()
