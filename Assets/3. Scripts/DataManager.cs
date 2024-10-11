@@ -60,7 +60,7 @@ public class DataManager : SingletonMono<DataManager>
         }
     }
 
-    private Sprite LoadSpriteFromResources(string spriteName)
+    public Sprite LoadSpriteFromResources(string spriteName)
     {
         return Resources.Load<Sprite>(spriteName);
     }

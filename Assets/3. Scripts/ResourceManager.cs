@@ -14,12 +14,12 @@ public class ResourceManager : SingletonMono<ResourceManager>
 
     private void Awake()
     {
-        EventManager<UIEvents>.StartListening<Resource>(UIEvents.OnClickRestoreResource, AddResource);
+        EventManager<UIEvents>.StartListening<Resource>(UIEvents.OnMouseDownRestoreUIInventory, AddResource);
     }
 
     private void OnDestroy()
     {
-        EventManager<UIEvents>.StopListening<Resource>(UIEvents.OnClickRestoreResource, AddResource);
+        EventManager<UIEvents>.StopListening<Resource>(UIEvents.OnMouseDownRestoreUIInventory, AddResource);
     }
 
     private void Start()

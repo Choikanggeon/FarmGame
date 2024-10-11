@@ -14,7 +14,8 @@ public class Egg : Resource
     public override void OnMouseDown()
     {
         // 클릭하면 자원이 인벤토리에 추가됨
-        EventManager<UIEvents>.TriggerEvent<Resource>(UIEvents.OnClickRestoreResource, this);
+        EventManager<UIEvents>.TriggerEvent<Resource>(UIEvents.OnMouseDownRestoreUIInventory, this);
+        EventManager<UIEvents>.TriggerEvent<Resource>(UIEvents.OnMouseDownSetProductContent, this);
         this.gameObject.SetActive(false);
     }
     

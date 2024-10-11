@@ -9,13 +9,9 @@ namespace EnumTypes
         OnClickBuyPigButton,
         OnClickBuySheepButton,
         OnClickBuyCowButton,
-        OnClickRestoreResource,
-        OnEAChanged
+        OnMouseDownRestoreUIInventory,
+        OnMouseDownSetProductContent,
+        OnEAChanged,
     }
 
-    
-    public class EnumTypes : MonoBehaviour
-    {
-
-    }
 }

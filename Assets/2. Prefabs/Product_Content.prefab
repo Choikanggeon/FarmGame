@@ -230,9 +230,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5457205968627169155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 143.67819, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8072226189646728973
@@ -364,9 +364,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3586158234489994977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8389843908898198535
@@ -638,9 +638,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3586158234489994977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 117.5, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 131, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3772531837866071320
@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 6965746281966743125}
   - component: {fileID: 7743567888117928263}
   - component: {fileID: 3107272363756023408}
+  - component: {fileID: 4670596110979572994}
   m_Layer: 5
   m_Name: Product_Content
   m_TagString: Untagged
@@ -778,7 +779,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 815, y: 70}
+  m_SizeDelta: {x: 817, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7743567888117928263
 CanvasRenderer:
@@ -818,6 +819,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4670596110979572994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471752394178322823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb02c71e1bbbbc44a56cfe0f8a90950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5628217227813886102
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,9 +927,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5457205968627169155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 76.839096, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 29.6782, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3694073277739734141
@@ -1048,9 +1061,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5457205968627169155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8404026010008842195
@@ -1125,9 +1138,9 @@ RectTransform:
   - {fileID: 3305474056570531362}
   m_Father: {fileID: 4049123902278685455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 188, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1670590467797477377
@@ -1246,9 +1259,9 @@ RectTransform:
   - {fileID: 2864082437198207323}
   m_Father: {fileID: 4049123902278685455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 62, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1880507756308592844
